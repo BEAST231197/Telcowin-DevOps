@@ -1,5 +1,5 @@
 # Unique name for this workflow
-name: Deploy development branch to development and QA org
+name: Deploy development branch to development and QA orgs
 
 # Definition when the workflow should run
 on:
