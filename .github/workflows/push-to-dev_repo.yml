@@ -53,7 +53,7 @@ jobs:
               run: sf org login jwt --username ${{ secrets.DEPLOYMENT_USER_NAME_DEV }} --jwt-key-file server.key --client-id ${{ secrets.CONSUMER_KEY_DEV }} --instance-url ${{ vars.INSTANCE_URL_DEV }} --set-default
 
             - name: 'Deploy the entire branch to development org'
-              run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
+              run: sfdx force:source:deploy -p force-app 
 
             - name: 'Deploy destructive changes (if any) to development org'
               run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
@@ -64,7 +64,7 @@ jobs:
               run: sf org login jwt --username ${{ secrets.DEPLOYMENT_USER_NAME_QA }} --jwt-key-file server.key --client-id ${{ secrets.CONSUMER_KEY_DEV }} --instance-url ${{ vars.INSTANCE_URL_QA }} --set-default
 
             - name: 'Deploy the entire branch to QA org'
-              run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
+              run: sfdx force:source:deploy -p force-app 
 
             - name: 'Deploy destructive changes (if any) to QA org'
               run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings
