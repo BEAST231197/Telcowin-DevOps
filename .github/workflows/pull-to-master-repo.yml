@@ -52,7 +52,7 @@ jobs:
               run: sf org login jwt --username ${{ secrets.DEPLOYMENT_USER_NAME_PROD }} --jwt-key-file server.key --client-id ${{ secrets.CONSUMER_KEY_PROD }} --instance-url ${{ vars.INSTANCE_URL_PROD }} --set-default
 
             - name: 'Deploy the entire branch to production org'
-              run: sfdx force:source:deploy -p force-app 
+              run: sfdx force:source:deploy -p force-app
 
             - name: 'Deploy destructive changes (if any) to production org'
               run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
